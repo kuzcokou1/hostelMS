@@ -1,0 +1,44 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+	<div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Student's Records</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>Student Name</th>
+                                <th>Course</th>
+                                <th>Reg. Number</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                                {% for student in students %}
+                                    <tr>
+                                        <td><a href="/student/{{ student['id'] }}">{{ student['fname'] }} {{ student['lname'] }}</a></td>
+                                        <td>{{ student['course'] }}</td>
+                                        <td>{{ student['regNo'] }}</td>
+                                        <td>{{ student['address'] }}</td>
+                                        <td>
+                                            <a href="/student/{{ student.id }}" class="btn btn-sm btn-primary">Edit</a>
+                                            <form action="/student/{{ student.id }}/remove" method="POST" class="float-right">
+                                                <input type="submit" name="submit" class="btn btn-sm btn-danger" value="Delete">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>  
+
+{% endblock %}

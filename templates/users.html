@@ -1,0 +1,44 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+	<div class="content">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<div class="table-responsive">
+		                  	<table class="table">
+			                    <thead class=" text-primary">
+			                      	<th>Full Name</th>
+			                      	<th>Email</th>
+			                      	<th>Action</th>
+			                    </thead>
+		                    	<tbody>
+			                      	{% for user in users %}
+
+		                                <tr>
+		                                    <td>{{ user.fname }} {{ user.lname }}</td>
+		                                    <td>{{ user.email }}</td>
+		                                    <td>
+		                                        {# <a href="/user/{{ user.id }}/edit" class="btn btn-sm btn-primary">Edit</a> #}
+	                                        	<form action="/user/{{ user.id }}/remove" method="POST">
+		                                            <input type="submit" name="submit" class="btn btn-sm btn-danger" value="Delete">
+		                                        </form>
+		                                    </td>
+		                                </tr>
+		                          
+		                            {% endfor %}
+		                    	</tbody>
+		                  	</table>
+		                </div>
+		                <a href="/signup" class="btn btn-sm btn-primary float-right">Add user</a>
+					</div>	
+				</div>
+			</div>
+			<div class="col-sm-3"></div>											
+		</div>
+	</div>
+
+
+{% endblock %}

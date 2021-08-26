@@ -1,0 +1,40 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+	<div class="card">
+      	<div class="card-header">
+        	<h4 class="card-title">Add Hostel</h4>
+      	</div>
+      	<div class="card-body">
+            <form action="" method="POST">
+                <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>Hostel Name</label>
+                        <input type="text" class="form-control" placeholder="Hostel Name" value="" name="name">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-1">
+                      <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" class="form-control" placeholder="Location" value="" name="location">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pr-1">
+                        <div class="form-group">
+                            <label>Capacity</label>
+                            <input type="text" class="form-control" placeholder="Capacity" value="" name="capacity">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="update ml-auto mr-auto mt-4">
+                        <button type="submit" class="btn btn-primary btn-round">Add Hostel</button>
+                    </div>
+                </div>
+            </form>
+      	</div>
+    </div>
+
+{% endblock %}

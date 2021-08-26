@@ -1,0 +1,223 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+	<div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+             	<div class="card-body ">
+	                <div class="row">
+	                  	<div class="col-5 col-md-4">
+		                    <div class="icon-big text-center icon-warning">
+		                      	<i class="nc-icon nc-bank text-warning"></i>
+		                    </div>
+	                  	</div>
+	                  	<div class="col-7 col-md-8">
+		                    <div class="numbers">
+		                      	<p class="card-category">Hostels</p>
+		                      	<p class="card-title">{{ hostels[0]['hostels'] }}<p>
+		                    </div>
+	                  	</div>
+	                </div>
+             	</div>
+              	<div class="card-footer ">
+                	<hr>
+	                <div class="stats">
+	                  	<i class="fa fa-refresh"></i>
+	                  	<a href="/add_hostel">Add Hostel</a>
+	                </div>
+              	</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-single-02 text-success"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">Students</p>
+                                <p class="card-title">{{ students[0]['students'] }}<p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-calendar-o"></i>
+                        <a href="/register">Register Student</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-bell-55 text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">Wardens</p>
+                                <p class="card-title">{{ wardens[0]['wardens'] }}<p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-clock-o"></i>
+                        <a href="/add_warden">Add Warden</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-circle-10 text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">Users</p>
+                                <p class="card-title">{{ users[0]['users'] }}<p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-refresh"></i>
+                        <a href="/signup">Add User</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          	<div class="col-md-6">
+          		<div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Recently Added Users</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Full Name</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                </thead>
+                                <tbody>
+                                    {% for user in recent_users %}
+                                        <tr>
+                                            <td>{{ user['fname'] }} {{ user['lname'] }}</td>
+                                            <td>{{ user['username'] }}</td>
+                                            <td>{{ user['email'] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+           	</div>
+          	<div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Recently Added Wardens</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Warden's Name</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
+                                </thead>
+                                <tbody>
+                                    {% for warden in recent_wardens %}
+                                        <tr>
+                                            <td>{{ warden['fname'] }} {{ warden['lname'] }}</td>
+                                            <td>{{ warden['address'] }}</td>
+                                            <td>{{ warden['phone'] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Recently Added Students</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Student Name</th>
+                                    <th>Course</th>
+                                    <th>Reg. Number</th>
+                                    <th>Address</th>
+                                </thead>
+                                <tbody>
+                                    {% for student in recent_students %}
+                                        <tr>
+                                            <td>{{ student['fname'] }} {{ student['lname'] }}</td>
+                                            <td>{{ student['course'] }}</td>
+                                            <td>{{ student['regNo'] }}</td>
+                                            <td>{{ student['address'] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Recently Added Hostels</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Hostel's Name</th>
+                                    <th>Location</th>
+                                    <th>Capacity</th>
+                                </thead>
+                                <tbody>
+                                    {% for hostel in recent_hostels %}
+                                        <tr>
+                                            <td>{{ hostel['name'] }}</td>
+                                            <td>{{ hostel['location'] }}</td>
+                                            <td>{{ hostel['capacity'] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

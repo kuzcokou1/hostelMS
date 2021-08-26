@@ -1,0 +1,5 @@
+flask
+requests
+passlib
+mysql-connector
+json

@@ -1,0 +1,42 @@
+{% extends 'template.html' %}
+
+{% block body %}
+
+	<div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Hostel Records</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <th>Hostel Name</th>
+                                <th>Location</th>
+                                <th>Total Capacity</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                                {% for hostel in hostels %}
+                                    <tr>
+                                        <td>{{ hostel['name'] }}</td>
+                                        <td>{{ hostel['location'] }}</td>
+                                        <td>{{ hostel['capacity'] }}</td>
+                                        <td>
+                                            <form action="/hostel/{{ hostel.id }}/remove" method="POST">
+                                                <input type="submit" name="submit" class="btn btn-sm btn-danger" value="Delete">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="/add_hostel" class="btn btn btn-sm btn-primary mt-3 float-right">Add Hostel</a>
+                </div>
+            </div>
+        </div>   
+    </div>      
+
+{% endblock %}
