@@ -210,6 +210,27 @@ def addWarden():
     return render_template('addWarden.html', title = "Add Warden")
 
 
+@app.route('/wardens')
+@login_required
+def wardens():
+    cur.execute("SELECT * FROM "+dbName+".wardens")
+    wardens = cur.fetchall()
+    return render_template('wardens.html', title = 'Manage Wardens', wardens = wardens)
+
+
+@app.route('/warden/<int:id>/remove', methods = ['GET', 'POST'])
+@login_required
+def remove_warden(id):
+    try:
+        cur.execute("DELETE FROM "+dbName+".wardens WHERE id = %s" %id)
+        conn.commit()
+
+        flash("Warden removed successfully", 'success')
+        return redirect(url_for('wardens'))
+    except:
+        flash("An error occured!", 'warning')
+    return redirect(url_for('wardens'))
+
 
 @app.route('/students')
 @login_required
