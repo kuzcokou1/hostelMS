@@ -1,6 +1,6 @@
 ## Operational Requirements.
 
-1. Python(V2.7+) must be installed and running on the PC. This should be accessible through the system variables. 
+1. Python(v2.7+) must be installed and running on the PC. This should be accessible through the system variables. 
 2. A local server for testing should also be installed. (XAMPP, LAMPP, WAMPP).
 3. This web application is able to run on any hardware provided the software requirements are met.
 
